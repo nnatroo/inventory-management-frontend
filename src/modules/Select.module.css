@@ -3,14 +3,17 @@
     background-color: transparent;
     position: absolute;
     font-family: "ALK Rex Bold", sans-serif;
+    
 }
 
 .select-wrapper select {
     background-color: transparent;
     color: white;
+    letter-spacing: 2px;
 }
 
 .select-wrapper select option {
     background-color: #212529;
     font-family: "ALK Rex Bold", sans-serif;
+    letter-spacing: 2px;
 }
