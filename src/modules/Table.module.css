@@ -6,4 +6,15 @@
 
 .operation-col img {
     cursor: pointer;
+    transition: 0.1s;
+    
+}
+
+.operation-col img:hover {
+    transform: scale(1.1);
+    overflow: hidden;
+}
+
+.operation-col img:active {
+    transform: rotate(45deg);
 }

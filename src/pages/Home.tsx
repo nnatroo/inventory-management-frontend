@@ -22,16 +22,13 @@ const Home: React.FC = () => {
 
   const nextPageHandler = () => {
     setCurrentPage(currentPage + 1);
-    console.log("Current page: " + currentPage);
   }
 
   const prevPageHandler = () => {
     setCurrentPage(currentPage - 1);
-    console.log("Current page: " + currentPage);
   }
 
   const deleteHandler = (itemId: number) => {
-    console.log(itemId);
     const inventoryID = itemId; 
 
     fetch(`http://localhost:3000/inventories/${inventoryID}`, {

@@ -18,7 +18,7 @@ const Table: React.FC<{ tableData: Array<Item>, currentPage: number, onDelete: (
                         <th scope="col">ნივთის სახელი</th>
                         <th scope="col">ნივთის ადგილმდებარეობა</th>
                         <th scope="col">ფასი (ლარებში)</th>
-                        <th scope="col">ოპერაციები</th>
+                        <th className='text-center' scope="col">ოპერაციები</th>
                     </tr>
                 </thead>
                 <tbody>
