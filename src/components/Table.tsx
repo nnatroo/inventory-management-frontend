@@ -1,9 +1,15 @@
 import classes from '../modules/Table.module.css'
 import Item from '../models/item';
+import Row from '../ui/Row';
 
 
-const Table: React.FC<{ tableData: Array<Item>, currentPage: number }> = (props) => {
-    
+
+const Table: React.FC<{ tableData: Array<Item>, currentPage: number, onDelete: (id: number) => void }> = (props) => {
+
+    const deleteHandler = (id: number) => {
+        props.onDelete(id);
+    }
+
     return (
         <div className={classes['table-wrapper']}>
             <table className="table table-dark table-striped">
@@ -17,16 +23,11 @@ const Table: React.FC<{ tableData: Array<Item>, currentPage: number }> = (props)
                 </thead>
                 <tbody>
 
-                    {props.tableData.slice(props.currentPage * 20 - 20, props.currentPage * 20).map((item, index) => (
-                        <tr key={index}>
-                            <td>{item.name}</td>
-                            <td>{item.place}</td>
-                            <td>{item.price}₾</td>
-                            <td className={classes['operation-col']}><img src="../src\assets\trash3.svg" alt="" /></td>
-                        </tr>
+                    {props.tableData.slice(props.currentPage * 20 - 20, props.currentPage * 20).map((item) => (
+                        <Row key={item.id} item={item} onDelete={deleteHandler}/>
                     ))}
 
-                   
+
                 </tbody>
             </table>
         </div>
