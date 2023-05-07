@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import classes from '../modules/Select.module.css'
 
 const Select: React.FC<{

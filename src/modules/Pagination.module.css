@@ -5,6 +5,9 @@
 
 .pagination-wrapper * {
     background-color: transparent;
+    font-family: "ALK Rex Bold", sans-serif;
+    color: white;
+    letter-spacing: 2px;
 }
 
 .pagination-wrapper li {

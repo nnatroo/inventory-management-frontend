@@ -16,7 +16,7 @@ const Pagination: React.FC<{ onNextPage: () => void, onPrevPage: () => void, cur
                 <ul className="pagination">
                     {props.currentPage !== 1 && <li onClick={prevPageHandler} className="page-item"><button className="page-link">წინა</button></li>}
                     <li className="page-item"><button className="page-link">{props.currentPage}</button></li>
-                    <li onClick={nextPageHandler} className="page-item"><button className="page-link">შემდეგი</button></li>
+                    {props.currentPage * 20 < props.totalItems && <li onClick={nextPageHandler} className="page-item"><button className="page-link">შემდეგი</button></li>}
                     <li className="page-item"><span className="page-link">ნივთების ჯამური რაოდენობა: {props.totalItems}</span></li>
                 </ul>
             </nav>

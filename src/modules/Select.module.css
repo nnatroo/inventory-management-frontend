@@ -2,6 +2,7 @@
     width: fit-content;
     background-color: transparent;
     position: absolute;
+    font-family: "ALK Rex Bold", sans-serif;
 }
 
 .select-wrapper select {
@@ -11,4 +12,5 @@
 
 .select-wrapper select option {
     background-color: #212529;
+    font-family: "ALK Rex Bold", sans-serif;
 }

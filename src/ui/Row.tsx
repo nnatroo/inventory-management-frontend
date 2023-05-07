@@ -10,7 +10,7 @@ const Row: React.FC<{ onDelete: (id: number) => void, item: { name: string, plac
             <tr>
                 <td>{props.item.name}</td>
                 <td>{props.item.place}</td>
-                <td>{props.item.price}₾</td>
+                <td>{props.item.price} ₾</td>
                 <td className={`${classes['operation-col']} text-center`}><img className='' onClick={clickHandler.bind(null, props.item.id)}  src="../src\assets\trash3.svg" alt="" /></td>
             </tr>
         </>
