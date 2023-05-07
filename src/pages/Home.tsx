@@ -9,9 +9,10 @@ const Home: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalItems, setTotalItems] = useState(0);
   const [dataChanged, setDataChanged] = useState(1);
+  const [sortOption, setSortOption] = useState("name")
 
   useEffect(() => {
-    fetch(`http://localhost:3000/inventories`)
+    fetch(`http://localhost:3000/inventories?sort=${sortOption}`)
       .then((response) => response.json())
       .then((data) => {
         setTableData(data);
@@ -29,7 +30,7 @@ const Home: React.FC = () => {
   }
 
   const deleteHandler = (itemId: number) => {
-    const inventoryID = itemId; 
+    const inventoryID = itemId;
 
     fetch(`http://localhost:3000/inventories/${inventoryID}`, {
       method: "DELETE",
@@ -40,16 +41,26 @@ const Home: React.FC = () => {
         }
         console.log("Inventory deleted successfully");
         setDataChanged(dataChanged + 1)
-        
+
       })
       .catch((error) => {
         console.error("Error deleting inventory:", error);
       });
   }
 
+  const priceSortHandler = () => {
+    setSortOption("price");
+    setDataChanged(dataChanged + 1);
+  }
+
+  const nameSortHandler = () => {
+    setSortOption("name");
+    setDataChanged(dataChanged + 1);
+  }
+
   return (
     <>
-      <Table onDelete={deleteHandler} tableData={tableData} currentPage={currentPage} />
+      <Table onPriceSort={priceSortHandler} onNameSort={nameSortHandler} onDelete={deleteHandler} tableData={tableData} currentPage={currentPage} />
       <Pagination totalItems={totalItems} currentPage={currentPage} onNextPage={nextPageHandler} onPrevPage={prevPageHandler} />
     </>
   )

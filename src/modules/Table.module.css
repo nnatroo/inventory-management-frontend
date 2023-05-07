@@ -18,3 +18,8 @@
 .operation-col img:active {
     transform: rotate(45deg);
 }
+
+
+.table-wrapper th {
+    cursor: pointer;
+}
