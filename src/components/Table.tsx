@@ -1,7 +1,9 @@
-import React from 'react'
 import classes from '../modules/Table.module.css'
+import Item from '../models/item';
 
-const Table: React.FC = () => {
+
+const Table: React.FC<{ tableData: Array<Item>, currentPage: number }> = (props) => {
+    
     return (
         <div className={classes['table-wrapper']}>
             <table className="table table-dark table-striped">
@@ -14,41 +16,16 @@ const Table: React.FC = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>პროექტორი</th>
-                        <td>კავეა გალერია</td>
-                        <td>1500₾</td>
-                        <td><img src="../src\assets\trash3.svg" alt="" /></td>
-                    </tr>
 
-                    <tr>
-                        <th>პროექტორი</th>
-                        <td>კავეა გალერია</td>
-                        <td>1500₾</td>
-                        <td><img src="../src\assets\trash3.svg" alt="" /></td>
-                    </tr>
+                    {props.tableData.slice(props.currentPage * 20 - 20, props.currentPage * 20).map((item, index) => (
+                        <tr key={index}>
+                            <td>{item.name}</td>
+                            <td>{item.place}</td>
+                            <td>{item.price}₾</td>
+                            <td className={classes['operation-col']}><img src="../src\assets\trash3.svg" alt="" /></td>
+                        </tr>
+                    ))}
 
-                    <tr>
-                        <th>პროექტორი</th>
-                        <td>კავეა გალერია</td>
-                        <td>1500₾</td>
-                        <td><img src="../src\assets\trash3.svg" alt="" /></td>
-                    </tr>
-
-                    <tr>
-                        <th>პროექტორი</th>
-                        <td>კავეა გალერია</td>
-                        <td>1500₾</td>
-                        <td><img src="../src\assets\trash3.svg" alt="" /></td>
-                    </tr>
-
-                    <tr>
-                        <th>პროექტორი</th>
-                        <td>კავეა გალერია</td>
-                        <td>1500₾</td>
-                        <td><img src="../src\assets\trash3.svg" alt="" /></td>
-                    </tr>
-                    
                    
                 </tbody>
             </table>
