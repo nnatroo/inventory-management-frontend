@@ -1,0 +1,12 @@
+.pagination-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination-wrapper * {
+    background-color: transparent;
+}
+
+.pagination-wrapper li {
+    cursor: pointer;
+}

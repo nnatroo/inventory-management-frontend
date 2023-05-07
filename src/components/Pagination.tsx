@@ -1,22 +1,26 @@
-import React, { useState } from 'react'
+import classes from '../modules/Pagination.module.css'
 
-const Pagination: React.FC <{onNextPage: () => void}> = (props) => {
+const Pagination: React.FC<{ onNextPage: () => void, onPrevPage: () => void, currentPage: number, totalItems: number }> = (props) => {
 
     const nextPageHandler = () => {
         props.onNextPage();
     }
-    
+
+    const prevPageHandler = () => {
+        props.onPrevPage();
+    }
+
     return (
-        <>
+        <div className={classes['pagination-wrapper']}>
             <nav aria-label="Page navigation example">
                 <ul className="pagination">
-                    <li className="page-item"><a className="page-link">Previous</a></li>
-                    {/* <li className="page-item"><a className="page-link">1</a></li>
-                    <li className="page-item"><a className="page-link">2</a></li> */}
-                    <li onClick={nextPageHandler} className="page-item"><a className="page-link">Next</a></li>
+                    {props.currentPage !== 1 && <li onClick={prevPageHandler} className="page-item"><button className="page-link">Previous</button></li>}
+                    <li className="page-item"><button className="page-link">{props.currentPage}</button></li>
+                    <li onClick={nextPageHandler} className="page-item"><button className="page-link">Next</button></li>
+                    <li className="page-item"><span className="page-link">ნივთების ჯამური რაოდენობა: {props.totalItems}</span></li>
                 </ul>
             </nav>
-        </>
+        </div>
     )
 }
 
