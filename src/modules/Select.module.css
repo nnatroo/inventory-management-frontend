@@ -1,0 +1,14 @@
+.select-wrapper {
+    width: fit-content;
+    background-color: transparent;
+    position: absolute;
+}
+
+.select-wrapper select {
+    background-color: transparent;
+    color: white;
+}
+
+.select-wrapper select option {
+    background-color: #212529;
+}

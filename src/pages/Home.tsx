@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Table from "../components/Table";
 import Pagination from "../components/Pagination";
 import Item from "../models/item";
+import Select from "../components/Select";
 
 const Home: React.FC = () => {
   const [tableData, setTableData] = useState<Item[]>([]);
@@ -10,10 +11,11 @@ const Home: React.FC = () => {
   const [dataChanged, setDataChanged] = useState(1);
   const [sortOption, setSortOption] = useState("name");
   const [sortType, setSortType] = useState("asc");
+  const [selectedValue, setSelectedValue] = useState('ყველა');
 
   useEffect(() => {
     fetch(
-      `http://localhost:3000/inventories?sort=${sortOption}&type=${sortType}`
+      `http://localhost:3000/inventories?sort=${sortOption}&type=${sortType}&place=${selectedValue}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -21,7 +23,7 @@ const Home: React.FC = () => {
         setTotalItems(data.length);
       })
       .catch((error) => console.error(error));
-  }, [dataChanged]);
+  }, [dataChanged, selectedValue]);
 
   const deleteHandler = (itemId: number) => {
     const inventoryID = itemId;
@@ -77,8 +79,14 @@ const Home: React.FC = () => {
     }
   };
 
+  const selectHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedValue(event.target.value);
+    setCurrentPage(1);
+  }
+
   return (
     <>
+      <Select selectedValue={selectedValue} onSelect={selectHandler}/>
       <Table
         onPriceSort={priceSortHandler}
         onNameSort={nameSortHandler}
