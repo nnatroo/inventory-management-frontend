@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import classes from '../modules/AddForm.module.css'
 
-const AddForm: React.FC<{}> = (props) => {
+const AddForm: React.FC<{}> = () => {
 
   const [selectedValue, setSelectedValue] = useState("მთავარი ოფისი");
   const [itemNameValue, setItemNameValue] = useState("");
@@ -30,7 +30,7 @@ const AddForm: React.FC<{}> = (props) => {
     }
     )
       .then((response) => response.json())
-      .then((data) => {
+      .then(() => {
         console.log("Success");
       })
       .catch((error) => console.error(error));
