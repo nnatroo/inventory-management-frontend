@@ -2,12 +2,13 @@
     margin-inline: 16%;
     border-left: 1px solid white;
     border-right: 1px solid white;
+    width: 100%;
 }
 
 .operation-col img {
     cursor: pointer;
     transition: 0.1s;
-    
+
 }
 
 .operation-col img:hover {

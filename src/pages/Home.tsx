@@ -87,15 +87,17 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Select selectedValue={selectedValue} onSelect={selectHandler} />
-      <Link to={"/add"}><button type="button" className={`${classes["add-button"]} btn btn-light`}>დამატება</button></Link>
-      <Table
-        onPriceSort={priceSortHandler}
-        onNameSort={nameSortHandler}
-        onDelete={deleteHandler}
-        tableData={tableData}
-        currentPage={currentPage}
-      />
+      <div className={classes['main-wrapper']}>
+        <Select selectedValue={selectedValue} onSelect={selectHandler} />
+        <Table
+          onPriceSort={priceSortHandler}
+          onNameSort={nameSortHandler}
+          onDelete={deleteHandler}
+          tableData={tableData}
+          currentPage={currentPage}
+        />
+        <Link to={"/add"}><button type="button" className={`${classes["add-button"]} btn btn-light`}>დამატება</button></Link>
+      </div>
       <Pagination
         totalItems={totalItems}
         currentPage={currentPage}

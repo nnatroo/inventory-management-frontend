@@ -1,9 +1,22 @@
+.main-page-button {
+    background-color: transparent;
+    color: white;
+    font-family: "ALK Rex Bold", sans-serif;
+    margin: 16px;
+    letter-spacing: 2px;
+}
+
 .form-wrapper{
     display: flex;
     align-items: center;
     margin-top: 4.75rem;
     flex-direction: column;
     gap: 2rem;
+}
+
+.form-wrapper * {
+    font-family: "ALK Rex Bold", sans-serif;
+    letter-spacing: 1px;
 }
 
 .form-wrapper h1 {
