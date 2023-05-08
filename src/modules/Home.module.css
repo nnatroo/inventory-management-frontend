@@ -1,0 +1,10 @@
+.add-button {
+    background-color: transparent;
+    position: absolute;
+    right: 0;
+    color: white;
+    padding-inline: 40px;
+    margin: 16px;
+    font-family: "ALK Rex Bold", sans-serif;
+    letter-spacing: 2px;
+}

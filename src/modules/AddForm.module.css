@@ -1,0 +1,47 @@
+.form-wrapper{
+    display: flex;
+    align-items: center;
+    margin-top: 4.75rem;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.form-wrapper h1 {
+    color: white;
+    font-family: "ALK Rex Bold", sans-serif;
+}
+
+.select-wrapper {
+    width: fit-content;
+    width: 300px;
+}
+
+.name-input-wrapper {
+    width: fit-content;
+    width: 300px;
+}
+
+.name-input-wrapper label {
+    margin-left: 2px;
+    color: white;
+    font-family: "ALK Rex Bold", sans-serif;
+}
+
+.price-input-wrapper {
+    width: fit-content;
+    width: 300px;
+}
+
+.price-input-wrapper label {
+    margin-left: 2px;
+    color: white;
+    font-family: "ALK Rex Bold", sans-serif;
+}
+
+.add-button {
+    width: 300px;
+    font-family: "ALK Rex Bold", sans-serif;
+    background-color: transparent;
+    color: white;
+    letter-spacing: 1px;
+}

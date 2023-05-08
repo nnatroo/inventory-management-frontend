@@ -3,6 +3,8 @@ import Table from "../components/Table";
 import Pagination from "../components/Pagination";
 import Item from "../models/item";
 import Select from "../components/Select";
+import { Link } from "react-router-dom";
+import classes from '../modules/Home.module.css'
 
 const Home: React.FC = () => {
   const [tableData, setTableData] = useState<Item[]>([]);
@@ -35,7 +37,6 @@ const Home: React.FC = () => {
         if (!response.ok) {
           throw new Error("Request failed");
         }
-        console.log("Inventory deleted successfully");
         setDataChanged(dataChanged + 1);
       })
       .catch((error) => {
@@ -86,7 +87,8 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Select selectedValue={selectedValue} onSelect={selectHandler}/>
+      <Select selectedValue={selectedValue} onSelect={selectHandler} />
+      <Link to={"/add"}><button type="button" className={`${classes["add-button"]} btn btn-light`}>დამატება</button></Link>
       <Table
         onPriceSort={priceSortHandler}
         onNameSort={nameSortHandler}
